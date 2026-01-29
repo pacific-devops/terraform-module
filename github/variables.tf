@@ -122,7 +122,7 @@ variable "web_commit_signoff_required" {
 variable "auto_init" {
   description = "Flag to create an initial commit with empty README"
   type        = bool
-  default     = true
+  default     = false    # true
 }
 
 variable "gitignore_template" {
