@@ -8,6 +8,6 @@ terraform {
 }
 
 provider "github" {
-  owner = "global-data-analytics"
+  owner = "pacific-devops"
   app_auth {}
 }
