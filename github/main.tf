@@ -167,6 +167,7 @@ resource "github_repository_file" "codeowners" {
   commit_message      = "chore: update CODEOWNERS file"
   commit_author       = "global-data-analytics/dops-infra"
   commit_email        = "placeholder@us.mcd.com"
+  autocreate_branch   = true
 
   depends_on = [github_repository.repo] # ensure repo & branch exist before adding file new code
 }
