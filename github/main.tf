@@ -156,10 +156,7 @@ resource "github_repository_environment" "environment" {
     users = tolist(each.value.reviewers.users)
   }
 }
-resource "github_branch" "main" {
-  repository = github_repository.repo.name
-  branch     = "main"
-}
+
 resource "github_repository_file" "codeowners" {
   file       = ".github/CODEOWNERS"
   branch     = var.default_branch
