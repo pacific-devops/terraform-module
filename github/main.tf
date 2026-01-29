@@ -157,19 +157,19 @@ resource "github_repository_environment" "environment" {
   }
 }
 
-resource "github_repository_file" "codeowners" {
-  file       = ".github/CODEOWNERS"
-  branch     = var.default_branch
-  repository = github_repository.repo.name
+resource "github_repository_file" "bootstrap" {
+  repository        = github_repository.repo.name
+  branch            = var.default_branch
+  file              = ".gitkeep"
+  content           = "bootstrap"
+  commit_message    = "chore: initial commit"
+  commit_author     = "prashant-app"
+  commit_email      = "placeholder@us.com"
+  autocreate_branch = true
 
-  content = local.codeowners_content_from_codeowners_list
-
-  commit_message      = "chore: update CODEOWNERS file"
-  commit_author       = "global-data-analytics/dops-infra"
-  commit_email        = "placeholder@us.mcd.com"
-  autocreate_branch   = true
-
-  depends_on = [github_repository.repo] # ensure repo & branch exist before adding file new code
+  depends_on = [
+    github_repository.repo
+  ]
 }
 
 data "github_repository" "template_repository" {
