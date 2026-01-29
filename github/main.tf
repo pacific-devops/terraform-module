@@ -157,7 +157,7 @@ resource "github_repository_environment" "environment" {
   }
 }
 
-resource "github_repository_file" "bootstrap" {
+resource "github_repository_file" "codeowners" {
   repository        = github_repository.repo.name
   branch            = var.default_branch
   file              = ".gitkeep"
